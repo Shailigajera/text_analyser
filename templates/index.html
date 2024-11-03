@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Text Analyzer</h1>
+        <form action="/analyze" method="post">
+            <textarea name="text" placeholder="Enter your text here..."></textarea>
+            <div class="button-container">
+                <button type="submit">Analyze Text</button>
+            </div>
+        </form>
+        {% if result %}
+        <div id="results">
+            <h3>Analysis Results:</h3>
+            <p>{{ result|safe }}</p>
+        </div>
+        {% endif %}
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
